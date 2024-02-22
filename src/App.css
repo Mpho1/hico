@@ -1,72 +1,182 @@
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.centered-table-container {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
-.App-link {
-  color: #61dafb;
+table {
+  margin-top: 20px;
+  /* Add some space between the title and the table */
+  border-collapse: collapse;
+  width: 80%;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+th,
+td {
+  border: 1px solid #dddddd;
+  padding: 8px;
+  text-align: left;
 }
 
-.container {
-  display: flex;
-  flex-wrap: wrap;
+th {
+  background-color: #f2f2f2;
 }
 
-.row {
-  flex: 1;
-  display: flex;
+.add-employee-button {
+  margin-top: 20px;
+  /* Add some space between the table and the button */
+  padding: 8px 16px;
+  background-color: #f2f2f2;
+  cursor: pointer;
+  margin-left: 82em;
+}
+
+.styled-form {
+  width: 80%;
+  margin: 0 auto;
+}
+
+.form-group {
+  margin-bottom: 1rem;
+}
+
+.col-form-label {
+  padding-top: calc(.375rem + 1px);
+  padding-bottom: calc(.375rem + 1px);
+  margin-bottom: 0;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+.form-control {
+  display: block;
+  width: 80%;
+  padding: .375rem .75rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: #495057;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 1px solid #ced4da;
+  border-radius: .25rem;
+  transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+
+.btn {
+  display: inline-block;
+  font-weight: 400;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  border: 1px solid transparent;
+  padding: .375rem .75rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  border-radius: .25rem;
+  transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+
+.btn-primary {
+  color: #fff;
+  background-color: #007bff;
+  border-color: #007bff;
+}
+
+.btn-primary:hover {
+  color: #fff;
+  background-color: #0069d9;
+  border-color: #0062cc;
 }
 
 .col-md-6 {
-  flex-basis: 50%;
+  float: left;
+  width: 50%;
 }
+
+.row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+
 
 .btn-green {
-  background-color: green;
-  color: white; 
-}
+    background-color: green;
+    color: white;
+  }
 
-.btn-blue {
-  background-color: blue;
-  color: white; 
-}
+  .btn-blue {
+    background-color: blue;
+    color: white;
+  }
 
-.btn-red {
-  background-color: red;
-  color: white; 
-}
+  .btn-red {
+    background-color: red;
+    color: white;
+  }
 
-.btn-default {
-  background-color: #007bff; 
-  color: white; 
-}
+  .btn-default {
+    background-color: #007bff;
+    color: white;
+  }
+
+  /* Custom styles */
+  .form-group label {
+    font-weight: bold;
+  }
+
+  /* Responsive styles */
+  @media (max-width: 768px) {
+    .form-group {
+      margin-bottom: 1rem;
+    }
+  }
+
+  /* Additional custom styles can be added as needed */
+  /* CSS */
+  input[type="text"],
+  input[type="number"],
+  input[type="email"],
+  input[type="password"],
+  select {
+    
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1rem;
+  }
+
+  /* Hover effect */
+  input[type="text"]:hover,
+  input[type="number"]:hover,
+  input[type="email"]:hover,
+  input[type="password"]:hover,
+  select:hover {
+    border-color: #888;
+  }
+
+  /* Focus effect */
+  input[type="text"]:focus,
+  input[type="number"]:focus,
+  input[type="email"]:focus,
+  input[type="password"]:focus,
+  select:focus {
+    outline: none;
+    border-color: #007bff;
+    box-shadow: 0 0 0 0.1rem rgba(0, 123, 255, 0.25);
+  }
+
+  /* Disabled state */
+  input[type="text"]:disabled,
+  input[type="number"]:disabled,
+  input[type="email"]:disabled,
+  input[type="password"]:disabled,
+  select:disabled {
+    background-color: #f8f9fa;
+    cursor: not-allowed;
+  }

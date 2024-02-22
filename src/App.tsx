@@ -92,8 +92,11 @@ function App() {
 
 
   return (
-    <div className="App">
+    <div className="">
       {/* Table displaying employees */}
+      <div className="centered-table-container">
+      <h2>Current Employees</h2>
+      <button className="add-employee-button" onClick={() => setShowForm(true)}>Add Employee</button>
       <table>
         <thead>
           <tr>
@@ -127,143 +130,166 @@ function App() {
           ))}
         </tbody>
       </table>
-
-      {/* Button to add new employee */}
-      <button onClick={() => setShowForm(true)}>Add Employee</button>
+    </div>
+    <br/>
 
       {/* Form to display employee information */}
       {showForm && (
-        <form className="App" onSubmit={handleSubmit}>
+          <form className="styled-form" onSubmit={handleSubmit}>
           <div className="row">
-            {/* Left Column */}
-            <div className="col-md-6">
-              <div className="form-group">
-                <label>First Name:</label>
-                <input
-                  type="text"
-                  className="form-control"
-                  name="firstName"
-                  defaultValue={selectedEmployee ? selectedEmployee.firstName : ''}
-                  onKeyPress={handleKeyPress}
-                />
-              </div>
-              <div className="form-group">
-                <label>Last Name:</label>
-                <input
-                  type="text"
-                  className="form-control"
-                  name="lastName"
-                  defaultValue={selectedEmployee ? selectedEmployee.lastName : ''}
-                  onKeyPress={handleKeyPress}
-                />
-              </div>
-              <div className="form-group">
-                <label>Salutation:</label>
-                <select className="form-control" name="salutation" defaultValue={selectedEmployee ? selectedEmployee.salutation : ''}>
-                  <option value="Dr.">Dr.</option>
-                  <option value="Mr.">Mr.</option>
-                  <option value="Ms.">Ms.</option>
-                  <option value="Mrs.">Mrs.</option>
-                  <option value="Mx.">Mx.</option>
-                </select>
-              </div>
-              <div className="form-group">
-                <label>Gross Salary:</label>
-                <input
-                  type="text"
-                  className="form-control"
-                  name="grossSalary"
-                  defaultValue={selectedEmployee ? selectedEmployee.grossSalary : ''}
-                  onKeyDown={handleSalaryKeyDown}
-                  onChange={handleSalaryChange}
-                />
-              </div>
-            </div>
-
+           
+        
             {/* Right Column */}
             <div className="col-md-6">
-              <div className="form-group">
-                <label>Full Name:</label>
-                <input
-                  type="text"
-                  className="form-control"
-                  name="fullName"
-                  defaultValue={selectedEmployee ? selectedEmployee.fullName : ''}
-                />
-              </div>
-              <div className="form-group">
-                <label>Gender:</label>
-                <div>
-                  <label>
-                    <input type="radio" name="gender" value="Male" defaultChecked={selectedEmployee ? selectedEmployee.gender === 'Male' : false} />
-                    Male
-                  </label>
-                  <label>
-                    <input
-                      type="radio"
-                      name="gender"
-                      value="Female"
-                      defaultChecked={selectedEmployee ? selectedEmployee.gender === 'Female' : false}
-                    />
-                    Female
-                  </label>
-                  <label>
-                    <input
-                      type="radio"
-                      name="gender"
-                      value="Unspecified"
-                      defaultChecked={selectedEmployee ? selectedEmployee.gender === 'Unspecified' : false}
-                    />
-                    Unspecified
-                  </label>
+              <div className="form-group row">
+                <label className="col-sm-4 col-form-label">First Name:</label>
+                <div className="col-sm-8">
+                  <input
+                    type="text"
+                    className="form-control"
+                    name="firstName"
+                    defaultValue={selectedEmployee ? selectedEmployee.firstName : ''}
+                    onKeyPress={handleKeyPress}
+                  />
                 </div>
               </div>
-              <div className="form-group">
-                <label>Employee Profile Colour:</label>
-                <div>
-                  <label>
-                    <input
-                      type="checkbox"
-                      name="profileColor"
-                      value="Green"
-                      defaultChecked={selectedEmployee ? (selectedEmployee.profileColor ? selectedEmployee.profileColor.includes('Green') : false) : false}
-                      onChange={handleColorChange}
-                    />
-                    Green
-                  </label>
-                  <label>
-                    <input
-                      type="checkbox"
-                      name="profileColor"
-                      value="Blue"
-                      //defaultChecked={selectedEmployee ? selectedEmployee.profileColor.includes('Blue') : false}
-                      defaultChecked={selectedEmployee ? (selectedEmployee.profileColor ? selectedEmployee.profileColor.includes('Blue') : false) : false}
-                      onChange={handleColorChange}
-                    />
-                    Blue
-                  </label>
-                  <label>
-                    <input
-                      type="checkbox"
-                      name="profileColor"
-                      value="Red"
-                      // defaultChecked={selectedEmployee ? selectedEmployee.profileColor.includes('Red') : false}
-                      defaultChecked={selectedEmployee ? (selectedEmployee.profileColor ? selectedEmployee.profileColor.includes('Red') : false) : false}
-                      onChange={handleColorChange}
-                    />
-                    Red
-                  </label>
-                  <label>
-                    <input
-                      type="checkbox"
-                      name="profileColor"
-                      value="Default"
-                      //defaultChecked={selectedEmployee ? selectedEmployee.profileColor.includes('Default') : false}
-                      defaultChecked={selectedEmployee ? (selectedEmployee.profileColor ? selectedEmployee.profileColor.includes('Default') : false) : false}
-                      onChange={handleColorChange}
-                    />
-                    Default
-                  </label>
+              <div className="form-group row">
+                <label className="col-sm-4 col-form-label">Last Name:</label>
+                <div className="col-sm-8">
+                  <input
+                    type="text"
+                    className="form-control"
+                    name="lastName"
+                    defaultValue={selectedEmployee ? selectedEmployee.lastName : ''}
+                    onKeyPress={handleKeyPress}
+                  />
+                </div>
+              </div>
+              <div className="form-group row">
+                <label className="col-sm-4 col-form-label">Salutation:</label>
+                <div className="col-sm-8">
+                  <select className="form-control" name="salutation" defaultValue={selectedEmployee ? selectedEmployee.salutation : ''}>
+                    <option value="Dr.">Dr.</option>
+                    <option value="Mr.">Mr.</option>
+                    <option value="Ms.">Ms.</option>
+                    <option value="Mrs.">Mrs.</option>
+                    <option value="Mx.">Mx.</option>
+                  </select>
+                </div>
+              </div>
+              <div className="form-group row">
+                <label className="col-sm-4 col-form-label">Gender:</label>
+                <div className="col-sm-8">
+                  <div>
+                    <label className="mr-3">
+                      <input type="radio" name="gender" value="Male" defaultChecked={selectedEmployee ? selectedEmployee.gender === 'Male' : false} />
+                      Male
+                    </label>
+                    <label className="mr-3">
+                      <input
+                        type="radio"
+                        name="gender"
+                        value="Female"
+                        defaultChecked={selectedEmployee ? selectedEmployee.gender === 'Female' : false}
+                      />
+                      Female
+                    </label>
+                    <label>
+                      <input
+                        type="radio"
+                        name="gender"
+                        value="Unspecified"
+                        defaultChecked={selectedEmployee ? selectedEmployee.gender === 'Unspecified' : false}
+                      />
+                      Unspecified
+                    </label>
+                  </div>
+                </div>
+              </div>
+              {/* <div className="form-group row">
+                <label className="col-sm-4 col-form-label">Employee ID:</label>
+                <div className="col-sm-8">
+                  <input
+                    type="text"
+                    className="form-control"
+                    name="employeeID"
+                    defaultValue={selectedEmployee ? selectedEmployee.employeeID : ''}
+                  />
+                </div>
+              </div> */}
+            </div>
+
+             {/* Left Column */}
+             <div className="col-md-6">
+              <div className="form-group row">
+                <label className="col-sm-4 col-form-label">Full Name:</label>
+                <div className="col-sm-8">
+                  <input
+                    type="text"
+                    className="form-control"
+                    name="fullName"
+                    defaultValue={selectedEmployee ? selectedEmployee.fullName : ''}
+                  />
+                </div>
+              </div>
+              <div className="form-group row">
+                <label className="col-sm-4 col-form-label">Gross Salary:</label>
+                <div className="col-sm-8">
+                  <input
+                    type="text"
+                    className="form-control"
+                    name="grossSalary"
+                    defaultValue={selectedEmployee ? selectedEmployee.grossSalary : ''}
+                    onKeyDown={handleSalaryKeyDown}
+                    onChange={handleSalaryChange}
+                  />
+                </div>
+              </div>
+              <div className="form-group row">
+                <label className="col-sm-4 col-form-label">Employee Profile Colour:</label>
+                <div className="col-sm-8">
+                  <div>
+                    <label className="mr-3">
+                      <input
+                        type="checkbox"
+                        name="profileColor"
+                        value="Green"
+                        defaultChecked={selectedEmployee ? (selectedEmployee.profileColor ? selectedEmployee.profileColor.includes('Green') : false) : false}
+                        onChange={handleColorChange}
+                      />
+                      Green
+                    </label>
+                    <label className="mr-3">
+                      <input
+                        type="checkbox"
+                        name="profileColor"
+                        value="Blue"
+                        defaultChecked={selectedEmployee ? (selectedEmployee.profileColor ? selectedEmployee.profileColor.includes('Blue') : false) : false}
+                        onChange={handleColorChange}
+                      />
+                      Blue
+                    </label>
+                    <label className="mr-3">
+                      <input
+                        type="checkbox"
+                        name="profileColor"
+                        value="Red"
+                        defaultChecked={selectedEmployee ? (selectedEmployee.profileColor ? selectedEmployee.profileColor.includes('Red') : false) : false}
+                        onChange={handleColorChange}
+                      />
+                      Red
+                    </label>
+                    <label>
+                      <input
+                        type="checkbox"
+                        name="profileColor"
+                        value="Default"
+                        defaultChecked={selectedEmployee ? (selectedEmployee.profileColor ? selectedEmployee.profileColor.includes('Default') : false) : false}
+                        onChange={handleColorChange}
+                      />
+                      Default
+                    </label>
+                  </div>
                 </div>
               </div>
             </div>
@@ -274,8 +300,8 @@ function App() {
           >
             Save
           </button>
-
         </form>
+     
       )}
     </div>
   );
